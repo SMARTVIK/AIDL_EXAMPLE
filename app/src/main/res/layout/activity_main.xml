@@ -8,20 +8,56 @@
         android:padding="20dp"
         tools:context=".MainActivity">
 
+    <EditText
+            android:id="@+id/name"
+            android:hint="Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    <EditText
+            android:id="@+id/price"
+            android:hint="Price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+
+    <EditText
+            android:id="@+id/quantity"
+            android:hint="Quantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
     <TextView
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:background="@color/colorAccent"
+            android:layout_gravity="center_horizontal"
             android:id="@+id/add_product"
             android:padding="10dp"
-            android:text="Service connnect"
+            android:text="Add Product"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
+    <EditText
+            android:layout_margin="10dp"
+            android:id="@+id/find"
+            android:hint="Find Product By Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     <TextView
+            android:textColor="@color/white"
+            android:background="@color/colorAccent"
+            android:layout_gravity="center_horizontal"
             android:id="@+id/get_all_products"
+            android:text="Find Product"
+            android:layout_margin="10dp"
             android:padding="10dp"
-            android:text="get all products"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            />
 
 
 

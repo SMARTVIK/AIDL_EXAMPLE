@@ -11,6 +11,7 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.vk.interfacelibrary.IRemoteProductInterface;
@@ -27,19 +28,25 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         connectService();
 
+        final EditText name = findViewById(R.id.name);
+        final EditText price = findViewById(R.id.price);
+        final EditText quantity = findViewById(R.id.quantity);
+
+
+
         findViewById(R.id.add_product).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 if(myService!=null){
-
                     try {
-                        boolean added = myService.addProduct("Vivek", 23,2);
-                        Toast.makeText(MainActivity.this, "product added successfully", Toast.LENGTH_SHORT).show();
+                        boolean added = myService.addProduct(name.getText().toString(), Float.valueOf(price.getText().toString()),
+                                Integer.parseInt(quantity.getText().toString()));
+                        Toast.makeText(MainActivity.this, added?"product added successfully":"Failed to add", Toast.LENGTH_SHORT).show();
+                        clear(name,price,quantity);
                     } catch (RemoteException e) {
                         e.printStackTrace();
                     }
-
                 }else{
                     Toast.makeText(MainActivity.this, "Service is not connected", Toast.LENGTH_SHORT).show();
                 }
@@ -47,14 +54,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        final EditText findProduct = findViewById(R.id.find);
+
         findViewById(R.id.get_all_products).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if(myService!=null){
 
                     try {
-                        Product product = myService.getProduct("Vivek");
+                        Product product = myService.getProduct(findProduct.getText().toString());
                         if(product!=null){
                             Toast.makeText(MainActivity.this, "product was found", Toast.LENGTH_SHORT).show();
                         }
@@ -65,11 +73,15 @@ public class MainActivity extends AppCompatActivity {
                 }else{
                     Toast.makeText(MainActivity.this, "Service is not connected", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
 
+    }
 
+    private void clear(EditText name, EditText price, EditText quantity) {
+        name.setText("");
+        price.setText("");
+        quantity.setText("");
     }
 
     private void connectService() {
