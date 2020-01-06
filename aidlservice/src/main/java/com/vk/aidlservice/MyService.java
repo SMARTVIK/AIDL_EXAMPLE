@@ -39,6 +39,10 @@ public class MyService extends Service {
             }
             return null;
         }
+
+        public List<Product> getAllProducts() {
+            return products;
+        }
     };
 
     @Override

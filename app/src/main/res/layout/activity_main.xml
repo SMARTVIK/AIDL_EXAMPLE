@@ -18,6 +18,7 @@
     <EditText
             android:id="@+id/price"
             android:hint="Price"
+            android:inputType="numberDecimal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -26,6 +27,7 @@
     <EditText
             android:id="@+id/quantity"
             android:hint="Quantity"
+            android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -60,5 +62,16 @@
             />
 
 
+    <TextView
+            android:textColor="@color/white"
+            android:background="@color/colorAccent"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/show_all_products"
+            android:text="Show All Products"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
 
 </LinearLayout>

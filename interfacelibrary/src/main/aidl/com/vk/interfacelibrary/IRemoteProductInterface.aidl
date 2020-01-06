@@ -11,4 +11,5 @@ interface IRemoteProductInterface {
      */
     boolean addProduct(String name,float price, int quantity);
     Product getProduct(String name);
+    List<Product> getAllProducts();
 }

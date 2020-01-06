@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">aidlservice</string>
+    <string name="title_activity_server_activitiy">ServerActivitiy</string>
+    <string name="action_settings">Settings</string>
 </resources>

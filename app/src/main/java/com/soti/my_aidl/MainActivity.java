@@ -1,5 +1,7 @@
 package com.soti.my_aidl;
 
+import java.util.List;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ComponentName;
@@ -75,6 +77,26 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+        findViewById(R.id.show_all_products).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(myService!=null){
+                    try {
+                        showAllProducts(myService.getAllProducts());
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
+    }
+
+    private void showAllProducts(List<Product> allProducts) {
+
+
 
     }
 
